@@ -1,0 +1,1 @@
+const GALLERY_AUTOMATIC_SPEED = 0.1;

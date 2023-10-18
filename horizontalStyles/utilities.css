@@ -1,0 +1,13 @@
+/* Inspired by tailwind, cause tailwind is awesome */
+
+.border {
+  border: 2px solid rgb(252, 252, 252);
+}
+
+.m-0 {
+  margin: 0px;
+}
+
+.p-5 {
+  padding: 20px;
+}

@@ -1,0 +1,82 @@
+#images-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+img {
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+/* image is hidden, this class is added by default, then removed when viewed */
+.img-hide {
+  opacity: 0;
+  transform: translate(0, 20%);
+}
+
+img:hover {
+  transform: translate(0px, -8px);
+}
+
+.alternative {
+  transform: translate(0, 0);
+}
+
+.alternative:hover {
+  transform: translate(0, 0);
+}
+
+.clicked-image-container {
+  position: fixed;
+  inset: 0px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  cursor: pointer;
+}
+
+/* .clicked-image-container {
+  object-fit: contain;
+  height: min-content;
+  max-height: 90vh;
+} */
+
+.clicked-image {
+  object-fit: contain;
+  max-width: 80vw;
+  max-height: 80vh;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px 0px;
+}
+
+.clicked-image:hover {
+  transform: translate(0, 0);
+}
+
+.clicked-image-label {
+  font-size: 20px;
+  background: black;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: white;
+}

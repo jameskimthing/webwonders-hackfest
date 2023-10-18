@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Web Wonders Hackathon Challenge 5: Image Gallery"
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="horizontalStyles/styles.css" />
+    <link rel="stylesheet" href="horizontalStyles/utilities.css" />
+    <link rel="stylesheet" href="horizontalStyles/horizontal.css" />
+    <script type="text/javascript" src="horizontalScripts/gallery.js"></script>
+    <script type="text/javascript" src="horizontalScripts/image.js"></script>
+    <script
+      type="text/javascript"
+      src="horizontalScripts/constants.js"
+    ></script>
+
+    <title>Image Gallery</title>
+  </head>
+  <body>
+    <a
+      href="/index.html"
+      style="
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        background-color: black;
+        border-radius: 4px;
+        padding: 5px;
+        padding-bottom: 4px;
+        z-index: 9999;
+      "
+    >
+      <img class="alternative" src="try-something.svg" alt="alternative view" />
+    </a>
+    <div id="gallery">
+      <img id="current-image" src="images/0.jpg" alt="Starry sky" />
+      <div id="images-container-container">
+        <section id="images-container">
+          <img class="image" src="images/0.jpg" alt="Starry sky" />
+          <img class="image" src="images/1.jpg" alt="Monochrome mountain" />
+          <img
+            class="image"
+            src="images/2.jpg"
+            alt="Black feathers with orange spots"
+          />
+          <img class="image" src="images/3.jpg" alt="Bright room" />
+          <img class="image" src="images/4.jpg" alt="White pumpkins" />
+          <img class="image" src="images/5.jpg" alt="Purple gradient flops" />
+          <img class="image" src="images/6.jpg" alt="Abstract colored cubes" />
+          <img class="image" src="images/7.jpg" alt="Flamingo's head" />
+          <img class="image" src="images/8.jpg" alt="Sky" />
+          <img class="image" src="images/9.jpg" alt="High mountains" />
+        </section>
+      </div>
+    </div>
+    <div id="page-loading">
+      <div
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          color: rgb(255 255 255);
+          font-size: 30px;
+        "
+      >
+        Loading
+      </div>
+    </div>
+  </body>
+  <script>
+    initializeHorizontalGallery();
+
+    document.onreadystatechange = () => {
+      if (document.readyState === "complete") {
+        (async () => {
+          const loading = document.getElementById("page-loading");
+          await new Promise((r) => setTimeout(r, 500));
+          loading.style.transform = "translate(0, -100%)";
+          await new Promise((r) => setTimeout(r, 1000));
+          loading.remove();
+        })();
+      }
+    };
+  </script>
+</html>
