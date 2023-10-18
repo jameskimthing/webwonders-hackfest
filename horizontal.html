@@ -75,16 +75,27 @@
   <script>
     initializeHorizontalGallery();
 
-    document.onreadystatechange = () => {
-      if (document.readyState === "complete") {
-        (async () => {
-          const loading = document.getElementById("page-loading");
-          await new Promise((r) => setTimeout(r, 500));
-          loading.style.transform = "translate(0, -100%)";
-          await new Promise((r) => setTimeout(r, 1000));
-          loading.remove();
-        })();
-      }
-    };
+    // document.onreadystatechange = () => {
+    //   if (document.readyState === "complete") {
+    //     (async () => {
+    //       const loading = document.getElementById("page-loading");
+    //       await new Promise((r) => setTimeout(r, 500));
+    //       loading.style.transform = "translate(0, -100%)";
+    //       await new Promise((r) => setTimeout(r, 1000));
+    //       loading.remove();
+    //     })();
+    //   }
+    // };
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      async () => {
+        const loading = document.getElementById("page-loading");
+        loading.style.transform = "translate(0, -100%)";
+        await new Promise((r) => setTimeout(r, 1000));
+        loading.remove();
+      },
+      { once: true }
+    );
   </script>
 </html>

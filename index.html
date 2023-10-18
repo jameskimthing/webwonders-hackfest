@@ -51,19 +51,31 @@
   <script>
     initializeGallery();
 
-    document.onreadystatechange = () => {
-      if (document.readyState === "complete") {
-        (async () => {
-          const loading = document.getElementById("page-loading");
-          loading.classList.add("page-loading-hide");
-          await new Promise((r) => setTimeout(r, 1200));
-          loading.remove();
+    // document.onreadystatechange = () => {
+    //   if (document.readyState === "complete") {
+    //     (async () => {
+    //       const loading = document.getElementById("page-loading");
+    //       loading.classList.add("page-loading-hide");
+    //       await new Promise((r) => setTimeout(r, 1200));
+    //       loading.remove();
 
-          window.addEventListener("resize", (e) => {
-            adjustColumns();
-          });
-        })();
-      }
-    };
+    //       window.addEventListener("resize", (e) => {
+    //         adjustColumns();
+    //       });
+    //     })();
+    //   }
+    // };
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      async () => {
+        const loading = document.getElementById("page-loading");
+        loading.classList.add("page-loading-hide");
+        await new Promise((r) => setTimeout(r, 1200));
+        loading.remove();
+        window.addEventListener("resize", (e) => adjustColumns());
+      },
+      { once: true }
+    );
   </script>
 </html>
